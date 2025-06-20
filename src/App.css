@@ -1,0 +1,165 @@
+.s1_avatar{
+  bottom: 0%;
+  height: auto;
+  object-fit: contain;
+}
+
+.s1-wrapper{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(./assets/images/s1_bg.png);
+}
+
+.s2-wrapper{
+  width: 100vw;
+  /* height: 100vh; */
+  overflow: hidden;
+  padding: 100px;
+  background-image: url(./assets/images/s2_bg.png);
+}
+
+.s2-body{
+  display: grid;
+  gap: 20px;
+  grid-template-rows: auto;
+}
+.rock,.rock-avatar{
+  object-fit: contain;
+  height: auto;
+}
+.s3-wrapper{
+  position: relative;
+  overflow: hidden;
+  background-image: url(./assets/images/s3_bg.png);
+}
+
+@media screen and (max-width:500px) {
+
+  .s3-wrapper{
+    min-height: 300px;
+  }
+
+  .s1_avatar{
+    width: 300px;
+  }
+  
+  .s2-body{
+    grid-template-columns: 1fr;
+  }
+  
+  .meme{
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    border: 10px solid white;
+  }
+
+  .s2-wrapper{
+    /* padding: 100px; */
+  }
+
+  .rock{
+    width: 100px;
+  }
+
+  .rock-avatar{
+    width: 100px;
+  }
+}
+
+@media screen and (min-width:501px) and (max-width:1023px) {
+
+  .s3-wrapper{
+    min-height: 300px;
+  }
+
+  .s2-wrapper{
+    /* padding: 20px; */
+  }
+
+  .s1_avatar{
+    width: 400px;
+  }
+
+  .s2-body{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .meme{
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    border: 10px solid white;
+  }
+
+  .rock{
+    width: 120px;
+  }
+
+  .rock-avatar{
+    width: 120px;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1920px) {
+
+  .s3-wrapper{
+    min-height: 300px;
+  }
+
+  .s1_avatar{
+    width: 500px;
+  }
+
+  .s2-body{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .meme{
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    border: 10px solid white;
+  }
+
+  .rock{
+    width: 200px;
+  }
+
+  .rock-avatar{
+    width: 200px;
+  }
+}
+
+@media screen and (min-width:1921px){
+
+  .s3-wrapper{
+    min-height: 300px;
+  }
+
+  .s1_avatar{
+    width: 500px;
+  }
+
+  .s2-body{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+
+  .meme{
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    border: 10px solid white;
+  }
+
+  .rock{
+    width: 200px;
+  }
+
+  .rock-avatar{
+    width: 200px;
+  }
+}
+
