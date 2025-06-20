@@ -9,7 +9,7 @@ import meme_3 from '../src/assets/images/3.jpeg'
 import meme_4 from '../src/assets/images/4.jpeg'
 import meme_5 from '../src/assets/images/5.jpeg'
 import meme_6 from '../src/assets/images/6.jpeg'
-// import gif_1 from '../src/assets/images/g1.gif'
+import gif_1 from '../src/assets/images/g1.gif'
 // import gif_2 from '../src/assets/images/g2.gif'
 // import gif_3 from '../src/assets/images/g3.gif'
 import gif_4 from '../src/assets/images/g4.gif'
@@ -17,14 +17,21 @@ import gif_4 from '../src/assets/images/g4.gif'
 import rock from '../src/assets/images/stone.png'
 // import name from '../src/assets/images/namw.png'
 import { useEffect, useRef, useState } from 'react'
+import { startOrbit, stopOrbit } from './utils'
 
 function App() {
 
+  useEffect(()=>{
+    startOrbit("app-wrapper","gaaa",750);
+    return ()=>stopOrbit()
+  },[])
+
   return (
-    <div>
+    <div id='app-wrapper' style={{position:"relative"}}>
       <S1/>
       <S2/>
       <S3/>
+      <img id='gaaa' src={gif_1} className='absolute gif1'/>
     </div>
   )
 }
@@ -63,7 +70,7 @@ const S3=()=>{
     <Wrapper_responsive id="home-s3" class={{outerWrapper:"s3-wrapper"}}>
       <img 
         src={s3_avatar}
-        className='absolute-h-center s3_avatar' 
+        className='absolute-h-center s3-avatar' 
         style={{bottom:bottom,transition:"bottom 1s"}}
       />
       {/* <img 
@@ -120,5 +127,6 @@ const Rock=()=>{
     </div>
   )
 }
+
 
 export default App

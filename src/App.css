@@ -9,6 +9,7 @@
   height: 100vh;
   overflow: hidden;
   background-image: url(./assets/images/s1_bg.png);
+  position: relative;
 }
 
 .s2-wrapper{
@@ -32,6 +33,10 @@
   position: relative;
   overflow: hidden;
   background-image: url(./assets/images/s3_bg.png);
+}
+
+.gif1{
+  transform: translate(-50%,-50%);
 }
 
 @media screen and (max-width:500px) {
@@ -60,11 +65,23 @@
   }
 
   .rock{
-    width: 100px;
+    width: 150px;
   }
 
   .rock-avatar{
+    width: 150px;
+  }
+
+  .s3-avatar{
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gif1{
     width: 100px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -100,6 +117,18 @@
   .rock-avatar{
     width: 120px;
   }
+
+  .s3-avatar{
+    width: 700px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gif1{
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 @media screen and (min-width:1024px) and (max-width:1920px) {
@@ -129,6 +158,18 @@
 
   .rock-avatar{
     width: 300px;
+  }
+
+  .s3-avatar{
+    width: 1000px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gif1{
+    width: 300px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -160,6 +201,18 @@
 
   .rock-avatar{
     width: 300px;
+  }
+
+  .s3-avatar{
+    width: 1400px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .gif1{
+    width: 500px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
