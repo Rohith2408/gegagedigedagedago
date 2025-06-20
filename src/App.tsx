@@ -116,7 +116,7 @@ const Rock=()=>{
   return(
     <div onClick={()=>!clicked?setClicked(true):false} style={{position:'relative'}}>
       <img className='rock' src={rock} style={{zIndex:1}}/>
-      <img className='absolute rock-avatar' src={clicked?gif_4:""} style={{zIndex:-1,left:0,bottom:0,visibility:clicked?"visible":"hidden"}}/>
+      <img className='absolute rock-avatar' src={clicked?gif_4:""} style={{left:0,bottom:0,visibility:clicked?"visible":"hidden"}}/>
     </div>
   )
 }
