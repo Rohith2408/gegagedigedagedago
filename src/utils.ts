@@ -1,10 +1,9 @@
-import type { ScreenType } from "./useScreen";
 
 let Timer={time:0};
 
 let cycleTimer:any;
 
-export const orbit=(wrapperId:string,avatarId:string,timePeriod:number,screen:ScreenType)=>{
+export const orbit=(wrapperId:string,avatarId:string,timePeriod:number)=>{
     let wrapper=document.getElementById(wrapperId);
     let boundary=wrapper?.getBoundingClientRect();
     if(boundary)
@@ -28,6 +27,6 @@ export const stopOrbit=()=>{
     clearInterval(cycleTimer);
 }
 
-export const startOrbit=(wrapperId:string,avatarId:string,timePeriod:number,screen:ScreenType)=>{
-    cycleTimer=setInterval(()=>orbit(wrapperId,avatarId,timePeriod,screen),1)
+export const startOrbit=(wrapperId:string,avatarId:string,timePeriod:number)=>{
+    cycleTimer=setInterval(()=>orbit(wrapperId,avatarId,timePeriod),1)
 }

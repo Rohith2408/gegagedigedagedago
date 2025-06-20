@@ -18,14 +18,12 @@ import rock from '../src/assets/images/stone.png'
 // import name from '../src/assets/images/namw.png'
 import { useEffect, useRef, useState } from 'react'
 import { startOrbit, stopOrbit } from './utils'
-import useScreen from './useScreen'
 
 function App() {
 
-  const screen=useScreen();
 
   useEffect(()=>{
-    startOrbit("s1-wrapper","gaaa",750,screen);
+    startOrbit("s1-wrapper","gaaa",750);
     return ()=>stopOrbit()
   },[])
 
