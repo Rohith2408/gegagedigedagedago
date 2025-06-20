@@ -1,13 +1,15 @@
+import type { ScreenType } from "./useScreen";
+
 let Timer={time:0};
 
 let cycleTimer:any;
 
-export const orbit=(wrapperId:string,avatarId:string,timePeriod:number)=>{
+export const orbit=(wrapperId:string,avatarId:string,timePeriod:number,screen:ScreenType)=>{
     let wrapper=document.getElementById(wrapperId);
     let boundary=wrapper?.getBoundingClientRect();
     if(boundary)
     {
-        let radius=boundary?.width/4;
+        let radius=boundary.height/2;//(screen=="laptop"||screen=="pc")?boundary?.width/4:boundary.height/2;
         let boundaryOffset={x:boundary?.left,y:boundary?.top+window.scrollY};
         let center={x:boundaryOffset.x+(boundary.width/2),y:-100};
         let obj=document.getElementById(avatarId);
@@ -26,6 +28,6 @@ export const stopOrbit=()=>{
     clearInterval(cycleTimer);
 }
 
-export const startOrbit=(wrapperId:string,avatarId:string,timePeriod:number)=>{
-    cycleTimer=setInterval(()=>orbit(wrapperId,avatarId,timePeriod),1)
+export const startOrbit=(wrapperId:string,avatarId:string,timePeriod:number,screen:ScreenType)=>{
+    cycleTimer=setInterval(()=>orbit(wrapperId,avatarId,timePeriod,screen),1)
 }

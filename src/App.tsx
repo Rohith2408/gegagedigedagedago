@@ -18,11 +18,14 @@ import rock from '../src/assets/images/stone.png'
 // import name from '../src/assets/images/namw.png'
 import { useEffect, useRef, useState } from 'react'
 import { startOrbit, stopOrbit } from './utils'
+import useScreen from './useScreen'
 
 function App() {
 
+  const screen=useScreen();
+
   useEffect(()=>{
-    startOrbit("app-wrapper","gaaa",750);
+    startOrbit("s1-wrapper","gaaa",750,screen);
     return ()=>stopOrbit()
   },[])
 
@@ -39,7 +42,7 @@ function App() {
 const S1=()=>{
 
   return(
-    <Wrapper_responsive id="home-s1" class={{outerWrapper:"s1-wrapper"}}>
+    <Wrapper_responsive id="s1-wrapper" class={{outerWrapper:"s1-wrapper"}}>
       <div className='absolute' style={{left:"5%",bottom:-10}}><Rock/></div>
       <img 
         src={s1_avatar}
@@ -121,7 +124,8 @@ const Rock=()=>{
   },[clicked])
 
   return(
-    <div onClick={()=>!clicked?setClicked(true):false} style={{position:'relative'}}>
+    <div  style={{position:'relative'}}>
+      <button onClick={()=>!clicked?setClicked(true):false} className='fullwidth fullheight absolute' style={{zIndex:100,border:"none",backgroundColor:"transparent"}}/>
       <img className='rock' src={rock} style={{zIndex:1}}/>
       <img className='absolute rock-avatar' src={clicked?gif_4:""} style={{left:0,bottom:0,visibility:clicked?"visible":"hidden"}}/>
     </div>
