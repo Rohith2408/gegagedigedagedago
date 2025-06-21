@@ -127,6 +127,8 @@ const S1=()=>{
           muted={false}
           loop
           className='vid-wrapper'
+          playsInline
+          webkit-playsinline
         />
       </div>
     </Wrapper_responsive>
