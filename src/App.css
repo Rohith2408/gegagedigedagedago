@@ -104,6 +104,10 @@
 
 @media screen and (max-width:500px) {
 
+  .s1-wrapper{
+    max-width: 550px;
+  }
+
   .entry-button{
     padding: 10px;
   }
