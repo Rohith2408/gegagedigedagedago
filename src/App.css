@@ -39,6 +39,17 @@
   transform: translate(-50%,-50%);
 }
 
+.cawrapper{
+  background-color: white;
+  border: 10px solid;
+}
+
+.copyWrapper{
+  margin: 0;
+  background-color: transparent;
+  border: none;
+}
+
 @media screen and (max-width:500px) {
 
   .s3-wrapper{
@@ -83,6 +94,25 @@
     height: auto;
     object-fit: contain;
   }
+
+  .socialicons{
+    width:40px;
+    border-radius: 100px;
+}
+
+.cawrapper{
+  padding:10px;
+  gap: 10px;
+}
+
+.caHeading,.ca{
+  font-size:14px;
+}
+
+.copyIcon{
+  width:14px;
+  height: auto;
+}
 }
 
 @media screen and (min-width:501px) and (max-width:1023px) {
@@ -129,6 +159,26 @@
     height: auto;
     object-fit: contain;
   }
+
+
+  .socialicons{
+    width:40px;
+    border-radius: 100px;
+}
+
+.cawrapper{
+  padding:10px;
+  gap: 10px;
+}
+
+.caHeading,.ca{
+  font-size:14px;
+}
+
+.copyIcon{
+  width:14px;
+  height: auto;
+}
 }
 
 @media screen and (min-width:1024px) and (max-width:1920px) {
@@ -138,7 +188,7 @@
   }
 
   .s1_avatar{
-    width: 500px;
+    width: 400px;
   }
 
   .s2-body{
@@ -171,6 +221,29 @@
     height: auto;
     object-fit: contain;
   }
+
+  .socialicons{
+    width:44px;
+    border-radius: 100px;
+}
+.cawrapper{
+  padding:10px;
+  gap: 10px;
+}
+
+.caHeading,.ca{
+  font-size:16px;
+}
+
+.copyIcon{
+  width:20px;
+  height: auto;
+}
+
+.vid-wrapper{
+  width: 500px;
+  height: auto;
+}
 }
 
 @media screen and (min-width:1921px){
@@ -214,5 +287,28 @@
     height: auto;
     object-fit: contain;
   }
+
+  .socialicons{
+    width:80px;
+    border-radius: 100px;
+}
+.cawrapper{
+  padding: 10px;
+  gap: 10px;
+}
+
+.caHeading,.ca{
+  font-size:28px;
+}
+
+.copyIcon{
+  width:26px;
+  height: auto;
+}
+
+.vid-wrapper{
+  width: 500px;
+  height: auto;
+}
 }
 

@@ -12,7 +12,7 @@ export const orbit=(wrapperId:string,avatarId:string,timePeriod:number)=>{
         let boundaryOffset={x:boundary?.left,y:boundary?.top+window.scrollY};
         let center={x:boundaryOffset.x+(boundary.width/2),y:-100};
         let obj=document.getElementById(avatarId);
-        console.log("center",center,boundaryOffset,window.scrollY);
+        //console.log("center",center,boundaryOffset,window.scrollY);
         if(wrapper && obj && boundary){
             let newPos={y:center.y+(radius*Math.sin(Timer.time*(Math.PI*2/timePeriod))),x:center.x+(radius*Math.cos(Timer.time*(Math.PI*2/timePeriod)))};
             obj.style.setProperty("top",newPos.y+"px","important");

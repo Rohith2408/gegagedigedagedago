@@ -10,6 +10,8 @@ import meme_4 from '../src/assets/images/4.jpeg'
 import meme_5 from '../src/assets/images/5.jpeg'
 import meme_6 from '../src/assets/images/6.jpeg'
 import gif_1 from '../src/assets/images/g1.gif'
+import vid from '../src/assets/images/vid.mp4'
+import music from '../src/assets/music.mp3'
 // import gif_2 from '../src/assets/images/g2.gif'
 // import gif_3 from '../src/assets/images/g3.gif'
 import gif_4 from '../src/assets/images/g4.gif'
@@ -18,15 +20,20 @@ import rock from '../src/assets/images/stone.png'
 // import name from '../src/assets/images/namw.png'
 import { useEffect, useRef, useState } from 'react'
 import { startOrbit, stopOrbit } from './utils'
+import x from '../src/assets/images/twitter.png'
+import dex from '../src/assets/images/dextools.png'
+import pump from '../src/assets/images/pump.png'
+import copy_icon from '../src/assets/images/copy.png'
+import { getAllWebsites } from './firebase'
+
 
 function App() {
 
-
   useEffect(()=>{
     startOrbit("s1-wrapper","gaaa",750);
-    return ()=>stopOrbit()
+  return ()=>stopOrbit()
   },[])
-
+  
   return (
     <div id='app-wrapper' style={{position:"relative"}}>
       <S1/>
@@ -38,6 +45,34 @@ function App() {
 }
 
 const S1=()=>{
+  
+  const [socialIcons,setSocialIcons]=useState([
+    { src: x, link: "" },
+    { src:dex, link: "" },
+    { src:pump, link: "" },
+  ]);
+  const [ca,setCa]=useState("TBA")
+
+  useEffect(()=>{
+    getAllWebsites().then((doc:any)=>{
+      let currentWebsite=doc.find((website:any)=>website.data.name=="gegagedigedagedago")
+      console.log(currentWebsite);
+      if(currentWebsite)
+      {
+        setSocialIcons([
+          { src: x, link: currentWebsite?.data?.sociallinks?.x },
+          { src: dex, link: currentWebsite?.data?.sociallinks?.dexscreener},
+          { src:pump, link: currentWebsite?.data?.sociallinks?.pump},
+        ]);
+        setCa(currentWebsite.data.ca);
+      }
+    })
+    let playButn=document.getElementById("play-button");
+    if(playButn)
+    {
+      playButn.click();
+    }
+  },[])
 
   return(
     <Wrapper_responsive id="s1-wrapper" class={{outerWrapper:"s1-wrapper"}}>
@@ -45,7 +80,25 @@ const S1=()=>{
       <img 
         src={s1_avatar}
         className='absolute-h-center s1_avatar' 
+        style={{zIndex:100}}
       />
+      <div className='absolute-h-center flexbox-column flexbox-center section-gap' style={{top:"10%",gap:20}}>
+        <div className="cawrapper flexbox-row flexbox-center curve">
+          <p className="caHeading">CA</p>
+          <p className="ca">{ca?ca:"TBA"}</p>
+          <button className={"copyWrapper button-transparent"} onClick={()=>{alert("CA has been copied");navigator.clipboard.writeText(ca)}}><img className={"copyIcon"} src={copy_icon}></img></button>
+        </div>
+        <div className='flexbox-row gap' style={{gap:30}}>
+        {
+          socialIcons.map((item:{ src:string, link:string})=>
+            <img className='socialicons' onClick={()=>window.open(item.link, '_blank')} src={item.src}/>
+          )
+        }
+        </div>
+        <audio id='audio' controls autoPlay loop style={{visibility:"hidden"}}>
+          <source src={music} type="audio/mpeg"/>
+        </audio>
+      </div>
     </Wrapper_responsive>
   )
 
@@ -58,7 +111,6 @@ const S3=()=>{
   useEffect(()=>{
     let  i=setInterval(()=>{
       setBottom((curr)=>{
-        console.log("ddd",curr)
         return curr==0?-100:0
       })
     },1500)
@@ -121,9 +173,24 @@ const Rock=()=>{
     }
   },[clicked])
 
+  const onClick=()=>{
+    !clicked?setClicked(true):false
+    play();
+  }
+
+  const play=()=>{
+    console.log("Playing");
+    let audio=document.getElementById("audio");
+    if(audio)
+    {
+      console.log("Audio",audio);
+      audio.play();
+    }
+  }
+
   return(
     <div  style={{position:'relative'}}>
-      <button onClick={()=>!clicked?setClicked(true):false} className='fullwidth fullheight absolute' style={{zIndex:100,border:"none",backgroundColor:"transparent"}}/>
+      <button onClick={onClick} className='fullwidth fullheight absolute' style={{zIndex:100,border:"none",backgroundColor:"transparent"}}/>
       <img className='rock' src={rock} style={{zIndex:1}}/>
       <img className='absolute rock-avatar' src={clicked?gif_4:""} style={{left:0,bottom:0,visibility:clicked?"visible":"hidden"}}/>
     </div>
