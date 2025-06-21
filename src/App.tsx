@@ -28,7 +28,7 @@ function App() {
 
   const [entry,setEntry]=useState(false);
   useEffect(()=>{
-    startOrbit("s1-wrapper","gaaa",750);
+    
   return ()=>stopOrbit()
   },[])
 
@@ -44,6 +44,13 @@ function App() {
     playVid();
     setEntry(true);
   }
+
+  useEffect(()=>{
+    if(entry)
+    {
+      startOrbit("s1-wrapper","gaaa",750);
+    }
+  },[entry])
 
   return (
     <div id='app-wrapper' style={{position:"relative"}}>
@@ -97,7 +104,7 @@ const S1=()=>{
       <div className='absolute' style={{left:"5%",bottom:-10}}><Rock/></div>
       <img 
         src={s1_avatar}
-        className='absolute-h-center s1_avatar' 
+        className='absolute s1_avatar' 
         style={{zIndex:100}}
       />
       <div className='absolute-h-center flexbox-column flexbox-center section-gap' style={{top:"10%",gap:20}}>

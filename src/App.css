@@ -37,6 +37,7 @@
 }
 
 .s1_avatar{
+  right: 0;
   bottom: 0%;
   height: auto;
   object-fit: contain;
@@ -103,12 +104,20 @@
 
 @media screen and (max-width:500px) {
 
+  .entry-button{
+    padding: 10px;
+  }
+
+  .entry-button-text{
+    font-size: 1.5rem;
+  }
+
   .s3-wrapper{
     min-height: 300px;
   }
 
   .s1_avatar{
-    width: 300px;
+    width: 150px;
   }
   
   .s2-body{
@@ -164,6 +173,11 @@
   width:14px;
   height: auto;
 }
+
+.vid-wrapper{
+  width: 200px;
+  height: auto;
+}
 }
 
 @media screen and (min-width:501px) and (max-width:1023px) {
@@ -177,7 +191,7 @@
   }
 
   .s1_avatar{
-    width: 400px;
+    width: 200px;
   }
 
   .s2-body{
@@ -228,6 +242,11 @@
 
 .copyIcon{
   width:14px;
+  height: auto;
+}
+
+.vid-wrapper{
+  width: 400px;
   height: auto;
 }
 }
@@ -292,7 +311,7 @@
 }
 
 .vid-wrapper{
-  width: 500px;
+  width: 700px;
   height: auto;
 }
 }
@@ -358,7 +377,7 @@
 }
 
 .vid-wrapper{
-  width: 500px;
+  width: 700px;
   height: auto;
 }
 }
