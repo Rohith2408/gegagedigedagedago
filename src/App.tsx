@@ -129,6 +129,7 @@ const S1=()=>{
           className='vid-wrapper'
           playsInline
           webkit-playsinline
+          style={{border:"5px solid white"}}
         />
       </div>
     </Wrapper_responsive>
