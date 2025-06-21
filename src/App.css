@@ -1,3 +1,41 @@
+#root{
+  --primary:#B8E8FF;
+  --text-l:16px;
+  --text-m:14px;
+  --text-s:12px;
+  --subtitle-l:20px;
+  --subtitle-m:18px;
+  --subtitle-s:16px;
+  --title-hero-l:140px;
+  --title-hero-m:124px;
+  --title-hero-s:80px;
+  --title-l:70px;
+  --title-m:62px;
+  --title-s:54px;
+  --cardtitle-l:20px;
+  --cardtitle-m:18px;
+  --cardtitle-s:16px;
+  --fact-l:30px;
+  --fact-m:24px;
+  --fact-s:20px;
+  --gap-l:14px;
+  --gap-m:12px;
+  --gap-s:10px;
+  --section-gap-l:40px;
+  --section-gap-m:32px;
+  --section-gap-s:26px;
+  --padding-l:20px;
+  --padding-m:14px;
+  --padding-s:10px;
+  --lineheight-s:1.5;
+  --lineheight-m:1.6;
+  --lineheight-l:1.7;
+}
+
+.entry-screen{
+  background-image: url(./assets/images/s2_bg.png);
+}
+
 .s1_avatar{
   bottom: 0%;
   height: auto;
@@ -48,6 +86,19 @@
   margin: 0;
   background-color: transparent;
   border: none;
+}
+
+.entry-button{
+  border:5px solid rgb(255, 255, 255);
+  padding: 50px;
+  background-color: brown;
+}
+
+.entry-button-text{
+  font-size: 2rem;
+  stroke:2px white;
+  -webkit-text-stroke: 2px white;
+  color: brown;
 }
 
 @media screen and (max-width:500px) {

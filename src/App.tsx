@@ -10,12 +10,8 @@ import meme_4 from '../src/assets/images/4.jpeg'
 import meme_5 from '../src/assets/images/5.jpeg'
 import meme_6 from '../src/assets/images/6.jpeg'
 import gif_1 from '../src/assets/images/g1.gif'
-import vid from '../src/assets/images/vid.mp4'
-import music from '../src/assets/music.mp3'
-// import gif_2 from '../src/assets/images/g2.gif'
-// import gif_3 from '../src/assets/images/g3.gif'
+import video from '../src/assets/images/vid.mp4'
 import gif_4 from '../src/assets/images/g4.gif'
-// import gif_5 from '../src/assets/images/g5.gif'
 import rock from '../src/assets/images/stone.png'
 // import name from '../src/assets/images/namw.png'
 import { useEffect, useRef, useState } from 'react'
@@ -24,18 +20,40 @@ import x from '../src/assets/images/twitter.png'
 import dex from '../src/assets/images/dextools.png'
 import pump from '../src/assets/images/pump.png'
 import copy_icon from '../src/assets/images/copy.png'
+import next_icon from '../src/assets/images/next.png'
 import { getAllWebsites } from './firebase'
 
 
 function App() {
 
+  const [entry,setEntry]=useState(false);
   useEffect(()=>{
     startOrbit("s1-wrapper","gaaa",750);
   return ()=>stopOrbit()
   },[])
-  
+
+  const playVid=()=>{
+    let ele:any=document.getElementById("vid");
+    if(ele)
+    {
+      ele.play();
+    }
+  } 
+
+  const handleEntry=()=>{
+    playVid();
+    setEntry(true);
+  }
+
   return (
     <div id='app-wrapper' style={{position:"relative"}}>
+      {
+        !entry
+        ?
+        <Entryscreen setEntry={handleEntry}/>
+        :
+        null
+      }
       <S1/>
       <S2/>
       <S3/>
@@ -95,9 +113,14 @@ const S1=()=>{
           )
         }
         </div>
-        <audio id='audio' controls autoPlay loop style={{visibility:"hidden"}}>
-          <source src={music} type="audio/mpeg"/>
-        </audio>
+        <video  
+          id='vid'
+          src={video}
+          controls={false}
+          muted={false}
+          loop
+          className='vid-wrapper'
+        />
       </div>
     </Wrapper_responsive>
   )
@@ -173,28 +196,26 @@ const Rock=()=>{
     }
   },[clicked])
 
-  const onClick=()=>{
-    !clicked?setClicked(true):false
-    play();
-  }
-
-  const play=()=>{
-    console.log("Playing");
-    let audio=document.getElementById("audio");
-    if(audio)
-    {
-      console.log("Audio",audio);
-      audio.play();
-    }
-  }
-
   return(
     <div  style={{position:'relative'}}>
-      <button onClick={onClick} className='fullwidth fullheight absolute' style={{zIndex:100,border:"none",backgroundColor:"transparent"}}/>
       <img className='rock' src={rock} style={{zIndex:1}}/>
       <img className='absolute rock-avatar' src={clicked?gif_4:""} style={{left:0,bottom:0,visibility:clicked?"visible":"hidden"}}/>
     </div>
   )
+}
+
+const Entryscreen=(props:{setEntry:any})=>{
+
+  return(
+    <div className='entry-screen flexbox-row flexbox-center fullwidth fullheight' style={{position:"fixed",top:0,zIndex:200}}>
+      <div onClick={props.setEntry} className='flexbox-row flexbox-center padding gap curve entry-button'>
+        {/* <span style={{fontSize:"2rem"}}>You’ve been gegagedigedageda’d.</span> */}
+        <button style={{backgroundColor:'transparent'}}><span className='entry-button-text michroma-regular'>Gegage Me</span></button>
+        <img src={next_icon} style={{width:"100px",height:"auto",objectFit:"contain"}}/>
+      </div>
+    </div>
+  )
+
 }
 
 
