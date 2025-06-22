@@ -81,13 +81,13 @@ const S1=()=>{
   useEffect(()=>{
     getAllWebsites().then((doc:any)=>{
       let currentWebsite=doc.find((website:any)=>website.data.name=="gegagedigedagedago")
-      console.log(currentWebsite);
+      console.log("Current Website",currentWebsite);
       if(currentWebsite)
       {
         setSocialIcons([
           { src: x, link: currentWebsite?.data?.sociallinks?.x },
           { src: dex, link: currentWebsite?.data?.sociallinks?.dexscreener},
-          { src:pump, link: currentWebsite?.data?.sociallinks?.pump},
+          { src:pump, link: currentWebsite?.data?.sociallinks?.pumpFun},
         ]);
         setCa(currentWebsite.data.ca);
       }
