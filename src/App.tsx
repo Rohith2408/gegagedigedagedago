@@ -109,8 +109,8 @@ const S1=()=>{
       />
       <div className='absolute-h-center flexbox-column flexbox-center section-gap' style={{top:"10%",gap:20}}>
         <div className="cawrapper flexbox-row flexbox-center curve">
-          <p className="caHeading">CA</p>
-          <p className="ca">{ca?ca:"TBA"}</p>
+          <span className="caHeading">CA</span>
+          <span className="ca">{ca?ca:"TBA"}</span>
           <button className={"copyWrapper button-transparent"} onClick={()=>{alert("CA has been copied");navigator.clipboard.writeText(ca)}}><img className={"copyIcon"} src={copy_icon}></img></button>
         </div>
         <div className='flexbox-row gap' style={{gap:30}}>
